@@ -1,0 +1,16 @@
+//Remove any Title ,text  other via JS Query
+add_action( 'wp_head', function () {
+if ( is_checkout() ) {
+?>
+
+<script>
+	jQuery( document ).ready(function() {
+		jQuery(".woocommerce-table.shop_table.order_details").each(function() {
+		   if(jQuery(this).find('tr').length == 0){
+			   jQuery(this).prev('h2').css('display','none');
+		   }
+		 });
+		
+	});
+</script>
+<?php } });
