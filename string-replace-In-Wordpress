@@ -1,0 +1,21 @@
+//String replac efuction start ,
+
+function start_modify_html() {
+   ob_start();
+}
+
+function end_modify_html() {
+   $html = ob_get_clean();
+  // $html = str_replace( 'cart', 'list', $html ); 
+
+	//multiple string working code
+	$change = array("Return to shop", "Continue shopping");
+	$replace= array("Continue Searching", "Continue Searching");
+	
+	$html = str_replace( $change,$replace, $html );
+   echo $html;
+}
+
+add_action( 'wp_head', 'start_modify_html' );
+add_action( 'wp_footer', 'end_modify_html' );
+//String replac efuction end ,
